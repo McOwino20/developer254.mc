@@ -450,12 +450,12 @@ section .title::after {
 }
 
 .skills-content .right .mysql::before {
-  width: 20%;
+  width: 23%;
   border-radius: 20px;
 }
 
 .skills-content .right .python::before {
-  width: 23%;
+  width: 20%;
   border-radius: 20px;
 }
 
