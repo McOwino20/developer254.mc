@@ -435,7 +435,7 @@ section .title::after {
 }
 
 .skills-content .right .css::before {
-  width: 60%;
+  width: 50%;
   border-radius: 20px;
 }
 
