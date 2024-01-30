@@ -65,6 +65,8 @@
         </nav>
 
         <main>
+            <form id="myForm">
+                
             <div class="title">Contact us</div>
             <div class="title-info">We'll get back to you soon!</div>
 
@@ -115,7 +117,7 @@
 
 
 <script>
-    document.getElementById('phone-number').addEventListener('submit', function(event) {
+    document.getElementById('myForm').addEventListener('submit', function(event) {
       // Check if the form is valid
       if (!this.checkValidity()) {
         // If not valid, prevent form submission
