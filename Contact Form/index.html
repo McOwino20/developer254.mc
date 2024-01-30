@@ -113,6 +113,23 @@
             </form>
         </main>
 
+
+<script>
+    document.getElementById('phone-number').addEventListener('submit', function(event) {
+      // Check if the form is valid
+      if (!this.checkValidity()) {
+        // If not valid, prevent form submission
+        event.preventDefault();
+        // You can also add custom error handling or messages here
+        alert('Please fill out all required fields with valid information.');
+      } else {
+        // If valid, you can perform further actions or submit the form to a server
+        alert('Form submitted successfully!');
+      }
+    });
+                        </script>
+
+                        
         <footer>
             <a href="#" target="_blank"><img class="social-media-img" src="./static/img/social_media/facebook.svg" alt="Facebook"></a>
             <a href="#" target="_blank"><img class="social-media-img" src="./static/img/social_media/github.svg" alt="GitHub"></a>
