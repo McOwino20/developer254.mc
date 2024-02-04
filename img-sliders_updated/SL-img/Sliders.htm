@@ -74,6 +74,87 @@ a:visited {
     }
     
   </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to display alert message
+      function displayMessage(message) {
+        alert(message);
+      }
+
+      // Disable right-click context menu
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        displayMessage('Right-click context menu is disabled on this website.');
+      });
+
+      // Disable keyboard shortcuts for screenshot
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'PrintScreen' || (e.key === 'Control' && e.key === 'Shift' && e.key === 'I')) {
+          e.preventDefault();
+          displayMessage('Keyboard shortcuts for screenshot are disabled on this website.');
+        }
+      });
+
+      // Disable inspect element
+      document.addEventListener('mousedown', function (e) {
+        if (e.button === 2 || (e.ctrlKey && e.altKey && e.shiftKey && e.code === 'KeyI')) {
+          e.preventDefault();
+          displayMessage('Inspect element is disabled on this website.');
+        }
+      });
+
+      // Disable drag-and-drop of images
+      document.addEventListener('dragstart', function (e) {
+        if (e.target.nodeName === 'IMG') {
+          e.preventDefault();
+          displayMessage('Drag-and-drop of images is disabled on this website.');
+        }
+      });
+
+      // Disable selecting text
+      document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+        displayMessage('Text selection is disabled on this website.');
+      });
+
+      // Disable copying content via keyboard shortcuts
+      document.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && (e.key === 'C' || e.key === 'A' || e.key === 'X')) {
+          e.preventDefault();
+          displayMessage('Copying content via keyboard shortcuts is disabled on this website.');
+        }
+      });
+
+      // Disable right-click on images
+      document.querySelectorAll('img').forEach(function (img) {
+        img.addEventListener('contextmenu', function (e) {
+          e.preventDefault();
+          displayMessage('Right-click on images is disabled on this website.');
+        });
+      });
+
+      // Disable drag-and-drop of images on mobile
+      document.addEventListener('touchstart', function (e) {
+        if (e.target.nodeName === 'IMG') {
+          e.preventDefault();
+          displayMessage('Drag-and-drop of images is disabled on this website (mobile).');
+        }
+      });
+      
+
+
+      // Disable direct link to images on mobile
+      document.querySelectorAll('a[href$=".jpg"], a[href$=".png"], a[href$=".gif"], a[href$=".jpeg"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          displayMessage('Direct linking to images is disabled on this website (mobile).');
+        });
+      });
+    });
+  </script>
+
+  
 </head>
 <body>
   <div class="slider-container">
