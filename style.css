@@ -11,6 +11,10 @@
   color: #fff;
 }
 
+p{
+  text-align: justify;
+}
+
 html {
   scroll-behavior: smooth;
 }
