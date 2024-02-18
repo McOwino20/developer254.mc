@@ -90,14 +90,14 @@ a:visited {
       // Disable right-click context menu
       document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
-        displayMessage('Right-click context menu is disabled on this website.');
+        displayMessage('Right-click context menu is disabled on this website by the developer (McOwino).');
       });
 
       // Disable keyboard shortcuts for screenshot
       document.addEventListener('keydown', function (e) {
         if (e.key === 'PrintScreen' || (e.key === 'Control' && e.key === 'Shift' && e.key === 'I')) {
           e.preventDefault();
-          displayMessage('Keyboard shortcuts for screenshot are disabled on this website.');
+          displayMessage('Keyboard shortcuts for screenshot are disabled on this website by the developer (McOwino).');
         }
       });
 
