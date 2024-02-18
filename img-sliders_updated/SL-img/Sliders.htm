@@ -105,7 +105,7 @@ a:visited {
       document.addEventListener('mousedown', function (e) {
         if (e.button === 2 || (e.ctrlKey && e.altKey && e.shiftKey && e.code === 'KeyI')) {
           e.preventDefault();
-          displayMessage('Inspect element is disabled on this website.');
+          displayMessage('Inspect element is disabled on this website by the developer (McOwino).');
         }
       });
 
@@ -113,21 +113,21 @@ a:visited {
       document.addEventListener('dragstart', function (e) {
         if (e.target.nodeName === 'IMG') {
           e.preventDefault();
-          displayMessage('Drag-and-drop of images is disabled on this website.');
+          displayMessage('Drag-and-drop of images is disabled on this website by the developer (McOwino).');
         }
       });
 
       // Disable selecting text
       document.addEventListener('selectstart', function (e) {
         e.preventDefault();
-        displayMessage('Text selection is disabled on this website.');
+        displayMessage('Text selection is disabled on this website by the developer (McOwino).');
       });
 
       // Disable copying content via keyboard shortcuts
       document.addEventListener('keydown', function (e) {
         if (e.ctrlKey && (e.key === 'C' || e.key === 'A' || e.key === 'X')) {
           e.preventDefault();
-          displayMessage('Copying content via keyboard shortcuts is disabled on this website.');
+          displayMessage('Copying content via keyboard shortcuts is disabled on this website by the developer (McOwino).');
         }
       });
 
@@ -135,7 +135,7 @@ a:visited {
       document.querySelectorAll('img').forEach(function (img) {
         img.addEventListener('contextmenu', function (e) {
           e.preventDefault();
-          displayMessage('Right-click on images is disabled on this website.');
+          displayMessage('Right-click on images is disabled on this website by the developer (McOwino).');
         });
       });
 
@@ -143,7 +143,7 @@ a:visited {
       document.addEventListener('touchstart', function (e) {
         if (e.target.nodeName === 'IMG') {
           e.preventDefault();
-          displayMessage('Drag-and-drop of images is disabled on this website (mobile).');
+          displayMessage('Drag-and-drop of images is disabled on this website (mobile) by the developer (McOwino).');
         }
       });
       
@@ -153,7 +153,7 @@ a:visited {
       document.querySelectorAll('a[href$=".jpg"], a[href$=".png"], a[href$=".gif"], a[href$=".jpeg"]').forEach(function (link) {
         link.addEventListener('click', function (e) {
           e.preventDefault();
-          displayMessage('Direct linking to images is disabled on this website (mobile).');
+          displayMessage('Direct linking to images is disabled on this website (mobile) by the developer (McOwino).');
         });
       });
     });
