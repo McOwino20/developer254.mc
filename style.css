@@ -15,6 +15,10 @@ p{
   text-align: justify;
 }
 
+a{
+  color: crimson;
+}
+
 html {
   scroll-behavior: smooth;
 }
