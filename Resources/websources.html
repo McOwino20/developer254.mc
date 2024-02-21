@@ -296,6 +296,43 @@ p{
     <br>
     <br>
     <br>
+    <!-- Formbutton docs at formspree.io/formbutton/ -->
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+<script>
+  /* paste this line in verbatim */
+  window.formbutton = window.formbutton || function() {
+    (formbutton.q = formbutton.q || []).push(arguments) };
+  /* customize formbutton below*/
+  formbutton("create", {
+    action: "https://formspree.io/f/mleqdkyn",
+    title: "<p>Hi there ! Am McOwino. I would like to hear from you.</p>",
+    fields: [
+      {
+        type: "email",
+        label: "Email:",
+        name: "email",
+        required: true,
+        placeholder: "your@email.com"
+      },
+      {
+        type: "textarea",
+        label: "Message:",
+        name: "message",
+        placeholder: "What's on your mind? Include your phone number eg +2547126879",
+      },
+      { type: "submit" }
+    ],
+    styles: {
+      title: {
+        backgroundColor: "crimpson"
+      },
+      button: {
+        backgroundColor: "crimpson"
+      }
+    }
+  });
+        </script>
+    <!-- end of form button -->
  <footer>
      <br>
 <span>Copyright © <script> document.write(new Date().getFullYear());
