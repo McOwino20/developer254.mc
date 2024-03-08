@@ -19,6 +19,33 @@ a{
   color: crimson;
 }
 
+
+.dismissable-text {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.dismissable-text .close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #aaa;
+  transition: all 0.3s ease;
+}
+  .dismissable-text .close-btn:hover {
+   color: #555;
+  }
+
+
+
 html {
   scroll-behavior: smooth;
 }
