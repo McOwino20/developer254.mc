@@ -43,7 +43,31 @@ a{
   .dismissable-text .close-btn:hover {
    color: #555;
   }
+  
+ .offer-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  position: fixed;
+  right: 20px; /* Adjust this value to change the distance from the left edge */
+  top: 50%; /* Adjust this value to vertically center the button */
+  transform: translateY(-50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+} 
 
+.offer-button:hover {
+  background-color: crimson; /* Darker green on hover */
+  border-radius: 50%
+  }
 
 
 html {
