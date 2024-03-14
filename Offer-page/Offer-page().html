@@ -1,0 +1,1357 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content= 
+        "width=device-width, initial-scale=1.0"> 
+    <title>Offer page</title> 
+    <style> 
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f0f0f0; 
+            
+            overflow-y: scroll; /* vertical scrollbar */
+            scrollbar-width: thin; /* For Firefox */
+            scrollbar-color: #333 #eee; /* For Firefox */
+        } 
+        
+        
+        
+        .coupon:hover { 
+            transform: translateY(-5px); /* Move coupon up slightly on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect on hover */
+            background-color: black; 
+        }
+        
+        .coupons-container {
+            display: flex;
+            flex-wrap: wrap; /* Items will wrap onto new line if space is insufficient */
+            justify-content: center; /* Centers items horizontally */
+            padding: 20px; /* Add padding for better spacing */
+        }
+        .coupon { 
+            background-color: #fff; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            border-radius: 5px; 
+            padding: 20px; 
+            max-width: 300px; 
+            text-align: center; 
+            margin: 10px; /* Add margin between coupons */
+        } 
+        .coupon img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 5px; 
+        } 
+        .coupon h2 { 
+            color: #008930; 
+            margin-top: 10px; 
+        } 
+        .coupon p { 
+            color: #777; 
+            line-height: 1.5; 
+            margin-top: 10px; 
+        } 
+        .coupon .code { 
+            font-size: 24px; 
+            color: green; 
+            margin-bottom: 10px; 
+        } 
+        .coupon .expiration { 
+            color: #e80c0c; 
+            font-size: 14px; 
+        } 
+        .order-button {
+            background-color: #008CBA; /* Set button background color */
+            color: white; /* Set button text color */
+            border: none; /* Remove button border */
+            padding: 10px 20px; /* Add padding to button */
+            border-radius: 5px; /* Add border radius */
+            cursor: pointer; /* Add cursor pointer */
+            transition: background-color 0.3s; /* Add transition effect */
+        }
+        .order-button:hover {
+            background-color: #005f78; /* Change button background color on hover */
+        }
+
+       
+       
+       /* Define keyframes for the scrollbar animation */
+        @keyframes scroll {
+            0% {
+                background-color: #eee;
+            }
+            50% {
+                background-color: #999;
+            }
+            100% {
+                background-color: #eee;
+            }
+        }
+        
+        /* Apply animation to the scrollbar */
+        body::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #333;
+            animation: scroll 2s infinite;
+        }
+    </style> 
+</head> 
+<body> 
+        <!-- Content Writing  -->
+            <div class="coupons-container"> 
+        <div class="coupon"> 
+            <div class="logo"> 
+                <img src="/Offer-page/Offer img/Content-Writting.jpg" 
+                    alt="GFG Logo"> 
+            </div> 
+            <h2>1. Content Writing</h2> 
+            <p>Get <span class="code">SAVE60</span> off your next course purchase!</p> 
+            <p>Use code at checkout to enjoy the discount.</p> 
+            <p>Expires: <span class="expiration">December 31, 2024</span></p> 
+            
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Content Writing Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+        </div>
+        
+        <!-- Resume Writing  -->
+          <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer-page/Offer img/Resume-Writing-Services.png" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>2. Resume writing</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+
+
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Resume Writing Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+
+
+
+
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+
+
+
+               
+            
+   
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+
+    </div> 
+            <!-- Web Development  -->
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/Web dev.jpeg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>3. Web Development</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+
+
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Web Development Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+
+    </div> 
+            <!-- Search Engine Optimization  -->
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/SEO.jpeg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>4. Search Engines Optimization</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Search Engines Optimization Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+               
+                <button type="submit" class="order-button">Submit Order</button> 
+            </form>
+    </div> 
+            <!-- API Development  -->
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/API-Development-Guide.png" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>5. API Development</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="API Development Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+               
+                <button type="submit" class="order-button">Submit Order</button> 
+            </form>
+
+    </div> 
+            <!-- Web Design  -->
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/Web Design.jpg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>6. Web Design</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Web Design Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+                <button type="submit" class="order-button">Submit Order</button>
+            </form>
+    </div> 
+            <!-- Game Development  -->
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/Gamedev-fullsize.png" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>7. Game Development</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+
+
+
+
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Game Development Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+              
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+
+    </div> 
+            <!-- Academic Writing  -->
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/academicwriting.jpg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>8. Academic Writing</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+
+
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Academic Writing Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+              
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+
+    </div> 
+        <!-- E-book  -->
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/web_report_pdf_ebook.png" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>9. E-Book Offer</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+
+
+
+
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="E-Book Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+
+    </div> 
+        <!-- E-Learning Services  -->
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/elearning.png" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>10. E-Learning Services</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="E-Learning Services Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+   
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+    </div> 
+        
+        <!-- Logo Design  -->
+           <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/logo-design1.jpg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>11. Logo Design</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Logo Design Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+
+    </div> 
+            <!-- Letter Writing  -->
+    
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/how-to-write-a-letter.jpg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>12. Letter Writing</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Letter Writing Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+
+    </div> 
+        <!-- Social Media Integration  -->
+        
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/Social-Media-Integration.png" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>13. Social Media Integration</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Social Media Integration Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+    </div> 
+    
+        <!-- Proofreading  -->
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/Proofreading.jpg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>14.Proofreading</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31,2024</span> 
+
+        </p> 
+            
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Proofreading Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+    </div>
+        <!-- Research Project  -->
+          <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/research-paper-writing.jpg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>15.Research Projects</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+         <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Research Projects Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+              
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+    </div> 
+         <!-- Research Proposal  -->
+    
+        <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/research-proposal-400x400.png" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>16.Research Proposal</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+             <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Research Proposal Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+              
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+    </div> 
+         <!-- Form Integration  -->
+          <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/Form integration.png" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>17. Form Integration</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+            <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Form Integration Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+    </div> 
+         <!-- Web Hosting Services -->
+        <div class="coupon"> 
+        
+        <div class="logo"> 
+
+            <img src= "/Offer img/web-hosting.png" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>18. Web hosting Services</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+      <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="GFG Course Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+
+
+
+
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+
+
+
+               
+            
+   
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+    </div> 
+
+        <!-- Dormain Name Acquisition  -->
+       <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/domain-name-acquisition-service.jpg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>19. Dormain Name Acquisition</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+         <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Web Hosting Services Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+              
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+    </div> 
+    
+        <!-- Online Chat Services  -->
+       <div class="coupon"> 
+
+        <div class="logo"> 
+
+            <img src= "/Offer img/Online_chat.jpg" 
+
+                alt="GFG Logo"> 
+
+        </div> 
+
+  
+
+        <h2>20. Online Chat Services</h2> 
+
+        <p> 
+
+            Get <span class="code">SAVE60</span>  
+
+            off your next course purchase! 
+
+        </p> 
+
+          
+
+        <p> 
+
+            Use code at checkout to  
+
+            enjoy the discount. 
+
+        </p> 
+
+          
+
+        <p>Expires: <span class="expiration"> 
+
+            December 31, 2024</span> 
+
+        </p> 
+         <form action="https://formspree.io/f/mgegvboj" method="POST" onsubmit="return validatePhoneNumber()">
+              
+              <input type="hidden" name="coupon_title" value="Online Chat Services Offer">
+                <input type="hidden" name="discount_code" value="SAVE60">
+                <input type="hidden" name="expiration_date" value="December 31, 2023">
+                
+                
+               <p> <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required></p>
+
+
+
+
+
+
+                 <p><label for="email_address" id="email_label">Email Address:</label>
+                <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninput="
+                    document.getElementById('email_label').innerHTML = 'Email Address: ' + this.value;">
+                <div id="emailError" style="color: red; display: none;">Invalid email address.</div></p>
+                
+
+
+
+               
+            
+   
+                <button type="submit" class="order-button">Submit Order</button> <!-- Add order button -->
+            </form>
+    </div> 
+
+
+      
+      
+      
+      
+      
+      
+      
+   
+        
+    </div> 
+    <script>
+        function validatePhoneNumber() {
+            var phoneNumber = document.getElementById("phone_number").value;
+            var phoneNumberPattern = /^\+\d{1,3}\d{6,14}$/; // International phone number pattern
+            if (!phoneNumberPattern.test(phoneNumber)) {
+                alert("Please enter a valid international phone number eg +2547128833.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    
+    <script>
+        function validateForm() {
+            var emailInput = document.getElementById("email_address");
+            var emailError = document.getElementById("emailError");
+            var emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+            if (!emailPattern.test(emailInput.value)) {
+                emailError.style.display = "block";
+                return false; // Prevent form submission
+            } else {
+                emailError.style.display = "none";
+                return true; // Allow form submission
+            }
+        }
+    </script>
+</body> 
+</html>
