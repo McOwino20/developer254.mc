@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .notification-board {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .notification {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .notification:last-child {
+            border-bottom: none;
+        }
+        .notification-icon {
+            font-size: 24px;
+            color: #333;
+            margin-right: 10px;
+        }
+        .notification-content {
+            flex-grow: 1;
+            color: #333;
+        }
+        .notification-close {
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        .notification-close:hover {
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="notification-board">
+        <div class="notification">
+            <div class="notification-icon">📢</div>
+            <div class="notification-content">New announcement! Check out our latest offers.</div>
+            <div class="notification-close">✖</div>
+        </div>
+        <div class="notification">
+            <div class="notification-icon">⚠️</div>
+            <div class="notification-content">Warning: Server maintenance scheduled for tomorrow.</div>
+            <div class="notification-close">✖</div>
+        </div>
+        <div class="notification">
+            <div class="notification-icon">🎉</div>
+            <div class="notification-content">Celebrate our anniversary with exclusive discounts!</div>
+            <div class="notification-close">✖</div>
+        </div>
+    </div>
+</body>
+</html>
