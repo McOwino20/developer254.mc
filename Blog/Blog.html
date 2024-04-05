@@ -227,9 +227,50 @@ Dear Readers,
     <footer>
         <br>
    <marquee behavior="" direction="left">Programming is that easy! Try your coding prowess here on <a href="/online-editor.html">OnlineEditor</a></marquee>
-    <span>Copyright © <script>
-        document.write(new Date().getFullYear());
-      </script> All rights reserved By <i class="fa fa-heart"></i> <a href="#">McOwino</a></p>
+      <!-- Formbutton docs at formspree.io/formbutton/ -->
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+<script>
+  /* paste this line in verbatim */
+  window.formbutton = window.formbutton || function() {
+    (formbutton.q = formbutton.q || []).push(arguments) };
+  /* customize formbutton below*/
+  formbutton("create", {
+    action: "https://formspree.io/f/mleqdkyn",
+    title: "<p>Hi there. Let's talk !</p>",
+    fields: [
+      {
+        type: "email",
+        label: "Email:",
+        name: "email",
+        required: true,
+        placeholder: "Eg. mcowino20@email.com"
+      },
+      {
+        type: "textarea",
+        label: "Message:",
+        name: "message",
+        placeholder: "Eg. Hi Mc, I would like to...",
+      },
+      { type: "submit" }
+    ],
+    styles: {
+      title: {
+        backgroundColor: "skyblue"
+      },
+      button: {
+        backgroundColor: "skyblue"
+      }
+    }
+  });
+        </script>
+    <!-- end of form button -->
+    
+    
+    
+      <br>
+<span>Copyright © <script> document.write(new Date().getFullYear());
+      </script> All rights reserved By <i class="fa fa-heart"></i> <a href="https://mcowino20.github.io/McOwino.com/">McOwino</a></p>
+    Developed by:<i class="fa fa-user-shield"></i> <a href="https://mcowino20.github.io/developer254.mc/">McOwino</a>
     </footer>
 </body>
 </html>
