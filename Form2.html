@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Information Form</title>
+</head>
+<body>
+
+<h2>Student Information Form</h2>
+
+<form id="studentForm">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" required><br>
+  <label for="admissionNumber">Admission Number:</label><br>
+  <input type="text" id="admissionNumber" name="admissionNumber" required><br>
+  <label for="yearOfStudy">Year of Study:</label><br>
+  <input type="number" id="yearOfStudy" name="yearOfStudy" min="1" max="6" required><br>
+  <label for="course">Course:</label><br>
+  <input type="text" id="course" name="course" required><br><br>
+  <button type="submit">Submit</button>
+</form>
+
+<p id="confirmationMsg"></p>
+
+<script>
+document.getElementById("studentForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  
+  var formData = new FormData(this);
+  
+  // Send form data to Google Form (replace "YOUR_FORM_LINK" with actual link)
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSftwLgqVnYZHfkey9N35mlz_UnooQu_7zL_ptQG00tUyekxgA/viewform?usp=sf_link', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors' // Disable CORS for cross-origin requests
+  })
+  .then(response => {
+    // Handle confirmation message
+    document.getElementById("confirmationMsg").textContent = "Your submission has been received. Please wait for confirmation.";
+    
+    // Check Google Form responses after a delay (replace "YOUR_FORM_URL" with actual URL)
+    setTimeout(() => {
+      fetch('https://docs.google.com/spreadsheets/d/1EGlwOxsx-b950Qk8r3BtncVTx2BnuwFC91yqkmo3kIM/edit?resourcekey#gid=486685997/export?format=csv')
+      .then(response => response.text())
+      .then(data => {
+        // Process Google Form responses
+        var responses = data.split('\n');
+        var lastResponse = responses[responses.length - 2]; // Get the last response
+        var submittedData = lastResponse.split(','); // Split response into array
+        
+        // Compare submitted data with form data
+        var name = formData.get('name');
+        var admissionNumber = formData.get('admissionNumber');
+        var yearOfStudy = formData.get('yearOfStudy');
+        var course = formData.get('course');
+        
+        if (submittedData[1] === name &&
+            submittedData[2] === admissionNumber &&
+            submittedData[3] === yearOfStudy &&
+            submittedData[4] === course) {
+          document.getElementById("confirmationMsg").textContent = "Your submission is correct. Redirecting...";
+          // Redirect to another page (replace "YOUR_REDIRECT_URL" with the actual URL)
+          window.location.href = "YOUR_REDIRECT_URL";
+        } else {
+          document.getElementById("confirmationMsg").textContent = "Your submission is incorrect. Please try again.";
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching Google Form responses:', error);
+      });
+    }, 1000); // Delay to allow time for Google Form response to be recorded
+  })
+  .catch(error => {
+    console.error('Error submitting form:', error);
+  });
+});
+</script>
+
+</body>
+</html>
