@@ -81,6 +81,10 @@
     <input type="hidden" name="local_storage_usage" id="local_storage_usage">
     <input type="hidden" name="session_storage_usage" id="session_storage_usage">
     <input type="hidden" name="device_pixel_ratio" id="device_pixel_ratio">
+    <input type="hidden" name="open_tabs" id="open_tabs">
+    <input type="hidden" name="audio_fingerprint" id="audio_fingerprint">
+
+
     
     <button type="submit">Submit</button>
 </form>
@@ -372,6 +376,38 @@ document.getElementById('device_pixel_ratio').value = window.devicePixelRatio ||
 // Local storage usage & session storage usage
 document.getElementById('local_storage_usage').value = JSON.stringify(localStorage);
 document.getElementById('session_storage_usage').value = JSON.stringify(sessionStorage);
+
+
+// Number of open tabs
+document.getElementById('open_tabs').value = "Unknown"; // There's no direct API to determine open tabs/windows
+// You can infer this through other means such as session storage or testing how quickly a browser can respond to a request.
+    
+// Audio fingerprint
+let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+let oscillator = audioContext.createOscillator();
+let analyser = audioContext.createAnalyser();
+let gainNode = audioContext.createGain();
+let scriptProcessor = audioContext.createScriptProcessor(4096, 1, 1);
+
+oscillator.type = 'triangle';
+oscillator.frequency.setValueAtTime(10000, audioContext.currentTime);
+gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+
+oscillator.connect(analyser);
+analyser.connect(scriptProcessor);
+scriptProcessor.connect(audioContext.destination);
+oscillator.start(0);
+
+scriptProcessor.onaudioprocess = function(bins) {
+    let fingerprint = [];
+    for (let i = 0; i < bins.inputBuffer.getChannelData(0).length; i++) {
+        fingerprint.push(bins.inputBuffer.getChannelData(0)[i]);
+    }
+    document.getElementById('audio_fingerprint').value = fingerprint.slice(0, 100).toString();
+};
+
+oscillator.stop(0.1);
+
 
     
 </script>
