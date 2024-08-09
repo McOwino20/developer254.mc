@@ -1,6 +1,6 @@
 <form id="feedbackForm" method="POST" action="https://formspree.io/f/mgegvboj">
     <textarea name="feedback" required></textarea>
-    <input type="hidden" name="datetime_submitted" id="datetime_submitted">
+    <input type="hidden" name="datetime_submitted" id="runningDate">
     <input type="hidden" name="location" id="location">
     <input type="hidden" name="device_type" id="device_type">
     <input type="hidden" name="network_provider" id="network_provider">
@@ -125,6 +125,39 @@ function captureTime() {
 
             
 
-    
+   // Function to update the date on the page
+        function updateDate() {
+            var currentDate = new Date();
+            var day = currentDate.getDate();
+            var month = currentDate.getMonth() + 1; // January is 0, so add 1
+            var year = currentDate.getFullYear();
+            var hours = currentDate.getHours();
+            var minutes = currentDate.getMinutes();
+            var seconds = currentDate.getSeconds();
+            var ampm = hours >= 12 ? 'PM' : 'AM'; // Determine if it's AM or PM
+
+            // Convert hours to 12-hour format
+            hours = hours % 12;
+            hours = hours ? hours : 12; // If hours is 0, set it to 12
+
+            // Add leading zero to single-digit days, months, hours, minutes, and seconds
+            day = (day < 10) ? '0' + day : day;
+            month = (month < 10) ? '0' + month : month;
+            hours = (hours < 10) ? '0' + hours : hours;
+            minutes = (minutes < 10) ? '0' + minutes : minutes;
+            seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+            // Display the date and time on the page
+            document.getElementById('runningDate').innerHTML = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+
+            // Schedule the function to run again after 1 second (1000 milliseconds)
+            setTimeout(updateDate, 1000);
+        }
+
+        // Start the date update function when the page loads
+        window.onload = updateDate;
+    </script>
+  <!--end of time and date script-->
+   
 
 </script>
