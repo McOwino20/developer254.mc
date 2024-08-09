@@ -240,5 +240,11 @@
 
     // Capture Timezone
     document.getElementById('timezone').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        
+    // Capture Session Duration
+    let sessionStartTime = Date.now();
+    window.addEventListener("beforeunload", function () {
+        let sessionEndTime = Date.now();
+        let sessionDuration = (sessionEndTime - sessionStartTime) / 1000; // in seconds
+        document.getElementById('session_duration').value = sessionDuration;
+    });
 </script>
