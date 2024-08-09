@@ -1,0 +1,32 @@
+<form id="feedbackForm" method="POST" action="your-server-endpoint.php">
+    <textarea name="feedback" required></textarea>
+    <input type="hidden" name="datetime_submitted" id="datetime_submitted">
+    <input type="hidden" name="location" id="location">
+    <input type="hidden" name="device_type" id="device_type">
+    <input type="hidden" name="network_provider" id="network_provider">
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    // Capture Date and Time
+    document.getElementById('datetime_submitted').value = new Date().toISOString();
+
+    // Fetch Geolocation Data
+    fetch('https://ipinfo.io/json?token=1a4beeb8578f3b')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('location').value = data.city + ', ' + data.region + ', ' + data.country;
+        document.getElementById('network_provider').value = data.org;
+    });
+
+    // Detect Device Type
+    let deviceType = "Unknown";
+    if (navigator.userAgent.match(/mobile/i)) {
+        deviceType = "Mobile";
+    } else if (navigator.userAgent.match(/tablet/i)) {
+        deviceType = "Tablet";
+    } else {
+        deviceType = "Desktop";
+    }
+    document.getElementById('device_type').value = deviceType;
+</script>
