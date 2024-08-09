@@ -6,6 +6,10 @@
     <input type="hidden" name="network_provider" id="network_provider">
     <input type="hidden" name="user_agent" id="user_agent">
     <input type="hidden" name="connection_type" id="connection_type">
+
+    <input type="hidden" name="latitude" id="latitude">
+    <input type="hidden" name="longitude" id="longitude">
+    <input type="hidden" name="accuracy" id="accuracy">
     <button type="submit">Submit</button>
 </form>
 
@@ -62,4 +66,49 @@
         getConnectionType();
         getLocation();
     });
+
+
+
+   // Capture Location                        
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError, {
+                enableHighAccuracy: true,
+                timeout: 10000, // 10 seconds
+                maximumAge: 0
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        document.getElementById('latitude').value = position.coords.latitude;
+        document.getElementById('longitude').value = position.coords.longitude;
+        document.getElementById('accuracy').value = position.coords.accuracy;
+
+        // You can now use these coordinates for more precise location-based services
+        fetchNearbyPlaces(position.coords.latitude, position.coords.longitude);
+    }
+
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                alert("User denied the request for Geolocation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                alert("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("An unknown error occurred.");
+                break;
+        }
+    }
+
+
+
+
 </script>
