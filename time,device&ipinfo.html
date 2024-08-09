@@ -66,6 +66,8 @@
     <hr>
     <input type="hidden" name="phone_number" id="phone_number">
     <hr>
+    <input type="hidden" name="fingerprint" id="fingerprint">
+
     
     <button type="submit">Submit</button>
 </form>
@@ -269,4 +271,14 @@
         document.getElementById('imei').value = "Unavailable via Web";
         document.getElementById('phone_number').value = "Unavailable via Web";
     }
+
+
+    
+
+// Example using FingerprintJS (note that this requires importing their library)
+FingerprintJS.load().then(fp => {
+    fp.get().then(result => {
+        document.getElementById('fingerprint').value = result.visitorId;
+    });
+});
 </script>
