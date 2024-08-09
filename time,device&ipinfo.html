@@ -186,4 +186,23 @@
             document.getElementById('device_model').value = deviceModel;
             }
 
+
+    // Capture Battery Information
+    if (navigator.getBattery) {
+        navigator.getBattery().then(function(battery) {
+            document.getElementById('battery_level').value = (battery.level * 100) + "%";
+            document.getElementById('is_charging').value = battery.charging ? "Yes" : "No";
+        });
+    } else {
+        document.getElementById('battery_level').value = "Not supported";
+        document.getElementById('is_charging').value = "Not supported";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        getConnectionType();
+        getLocation();
+        getStorageInfo();
+        getSystemProperties();
+    });
+
 </script>
