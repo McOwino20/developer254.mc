@@ -78,8 +78,9 @@
     <input type="hidden" name="window_height" id="window_height">
     <input type="hidden" name="canvas_fingerprint" id="canvas_fingerprint">
     <input type="hidden" name="webgl_fingerprint" id="webgl_fingerprint">
-
-
+    <input type="hidden" name="local_storage_usage" id="local_storage_usage">
+    <input type="hidden" name="session_storage_usage" id="session_storage_usage">
+    <input type="hidden" name="device_pixel_ratio" id="device_pixel_ratio">
     
     <button type="submit">Submit</button>
 </form>
@@ -364,6 +365,13 @@ document.getElementById('canvas_fingerprint').value = canvasFingerprint;
 document.getElementById('webgl_fingerprint').value = webglFingerprint;
 
 
+
+// Device pixel ratio 
+document.getElementById('device_pixel_ratio').value = window.devicePixelRatio || 1;
+
+// Local storage usage & session storage usage
+document.getElementById('local_storage_usage').value = JSON.stringify(localStorage);
+document.getElementById('session_storage_usage').value = JSON.stringify(sessionStorage);
 
     
 </script>
