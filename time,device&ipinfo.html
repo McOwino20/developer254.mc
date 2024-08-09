@@ -222,5 +222,23 @@
     // Capture Referrer URL
     document.getElementById('referrer_url').value = document.referrer || "Direct";
             
+   // Capture Visit Count
+    let visitCount = localStorage.getItem('visitCount') || 0;
+    visitCount++;
+    localStorage.setItem('visitCount', visitCount);
+    document.getElementById('visit_count').value = visitCount;
 
+    // Capture Installed Plugins
+    let plugins = [];
+    for (let i = 0; i < navigator.plugins.length; i++) {
+        plugins.push(navigator.plugins[i].name);
+    }
+    document.getElementById('installed_plugins').value = plugins.join(", ");
+
+    // Capture Browser Language
+    document.getElementById('browser_language').value = navigator.language || "Unknown";
+
+    // Capture Timezone
+    document.getElementById('timezone').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        
 </script>
