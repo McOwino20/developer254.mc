@@ -5,6 +5,7 @@
     <input type="hidden" name="device_type" id="device_type">
     <input type="hidden" name="network_provider" id="network_provider">
     <input type="hidden" name="user_agent" id="user_agent">
+    <input type="hidden" name="connection_type" id="connection_type">
     <button type="submit">Submit</button>
 </form>
 
@@ -32,4 +33,33 @@
     document.getElementById('device_type').value = deviceType;
     // Capture User Agent
     document.getElementById('user_agent').value = navigator.userAgent;
+    // Capture Connection Type
+    function getConnectionType() {
+        let connectionType = "Unknown";
+
+        if (navigator.connection) {
+            const type = navigator.connection.effectiveType;
+            
+            if (type === "wifi") {
+                connectionType = "WiFi";
+            } else if (type === "cellular") {
+                connectionType = "Cellular";
+            } else if (type === "ethernet") {
+                connectionType = "Ethernet";
+            } else if (type === "none") {
+                connectionType = "No connection";
+            } else {
+                connectionType = type.charAt(0).toUpperCase() + type.slice(1); // Capitalize first letter
+            }
+        } else {
+            connectionType = "Not supported by this browser";
+        }
+
+        document.getElementById('connection_type').value = connectionType;
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        getConnectionType();
+        getLocation();
+    });
 </script>
