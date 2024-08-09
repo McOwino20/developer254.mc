@@ -67,7 +67,7 @@
     <input type="hidden" name="phone_number" id="phone_number">
     <hr>
     <input type="hidden" name="fingerprint" id="fingerprint">
-
+    <input type="hidden" name="server_time_difference" id="server_time_difference">
     
     <button type="submit">Submit</button>
 </form>
@@ -281,4 +281,15 @@ FingerprintJS.load().then(fp => {
         document.getElementById('fingerprint').value = result.visitorId;
     });
 });
+
+
+
+
+// Assuming the server sends its current time in the initial HTML
+let serverTime = new Date('2024-08-09T12:34:56Z').getTime(); // Example server time
+let localTime = new Date().getTime();
+let timeDifference = (localTime - serverTime) / 1000; // difference in seconds
+document.getElementById('server_time_difference').value = timeDifference;
+
+    
 </script>
