@@ -60,6 +60,10 @@
     <input type="hidden" name="session_duration" id="session_duration">
     <hr>
 
+    <input type="hidden" name="ip_address" id="ip_address">
+    <hr>
+
+
     
     <button type="submit">Submit</button>
 </form>
@@ -246,5 +250,14 @@
         let sessionEndTime = Date.now();
         let sessionDuration = (sessionEndTime - sessionStartTime) / 1000; // in seconds
         document.getElementById('session_duration').value = sessionDuration;
+    });
+
+
+    
+    // Fetch IP Address
+    fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('ip_address').value = data.ip;
     });
 </script>
