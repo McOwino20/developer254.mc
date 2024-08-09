@@ -62,7 +62,8 @@
 
     <input type="hidden" name="ip_address" id="ip_address">
     <hr>
-
+    <input type="hidden" name="imei" id="imei">
+    <hr>
 
     
     <button type="submit">Submit</button>
@@ -260,4 +261,11 @@
     .then(data => {
         document.getElementById('ip_address').value = data.ip;
     });
+
+    
+    // Attempt to Capture IMEI and Phone Number (Note: This is typically not allowed for web apps due to security reasons)
+    function getIMEIAndPhoneNumber() {
+        document.getElementById('imei').value = "Unavailable via Web";
+        document.getElementById('phone_number').value = "Unavailable via Web";
+    }
 </script>
