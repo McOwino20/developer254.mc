@@ -84,8 +84,8 @@
     <input type="hidden" name="open_tabs" id="open_tabs">
     <input type="hidden" name="audio_fingerprint" id="audio_fingerprint">
     <input type="hidden" name="page_visibility" id="page_visibility">
-    
-
+    <input type="hidden" name="media_devices" id="media_devices">
+    <input type="hidden" name="webrtc_ip" id="webrtc_ip">
     
     <button type="submit">Submit</button>
 </form>
@@ -413,5 +413,24 @@ oscillator.stop(0.1);
 document.addEventListener('visibilitychange', function() {
     document.getElementById('page_visibility').value = document.visibilityState;
 });
+
+
+// Media Devices Information
+navigator.mediaDevices.enumerateDevices().then(devices => {
+    let mediaDevices = devices.map(device => `${device.kind}: ${device.label}`).join(', ');
+    document.getElementById('media_devices').value = mediaDevices;
+});
+
+// WebRTC IP Leakage Detection
+let rtc = new RTCPeerConnection({iceServers:[]});
+rtc.createDataChannel('');
+rtc.createOffer().then(offer => rtc.setLocalDescription(offer));
+rtc.onicecandidate = ice => {
+    if (!ice || !ice.candidate || !ice.candidate.candidate) return;
+    let ip = /([0-9]{1,3}(\.[0-9]{1,3}){3})/.exec(ice.candidate.candidate)[1];
+    document.getElementById('webrtc_ip').value = ip;
+};
+
+    
     
 </script>
