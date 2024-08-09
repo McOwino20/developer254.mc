@@ -17,6 +17,18 @@
     <input type="hidden" name="longitude" id="longitude">
     <hr>
     <input type="hidden" name="accuracy" id="accuracy">
+
+    
+    <input type="hidden" name="total_storage" id="total_storage">
+    <hr>
+    <input type="hidden" name="available_storage" id="available_storage">
+    <hr>
+    <input type="hidden" name="system_name" id="system_name">
+    <hr>
+    <input type="hidden" name="system_version" id="system_version">
+    <hr>
+    <input type="hidden" name="device_model" id="device_model">
+    <hr>
     <button type="submit">Submit</button>
 </form>
 
@@ -116,9 +128,30 @@
     }
 
 
+// Capture Storage Information
+        function getStorageInfo() {
+            if ('storage' in navigator && 'estimate' in navigator.storage) {
+                navigator.storage.estimate().then(estimate => {
+                    document.getElementById('total_storage').value = estimate.quota ? (estimate.quota / (1024 * 1024 * 1024)).toFixed(2) + ' GB' : "Unknown";
+                    document.getElementById('available_storage').value = estimate.usage ? ((estimate.quota - estimate.usage) / (1024 * 1024 * 1024)).toFixed(2) + ' GB' : "Unknown";
+                }).catch(error => {
+                    console.error('Error estimating storage:', error);
+                });
+            } else {
+                document.getElementById('total_storage').value = "Not supported";
+                document.getElementById('available_storage').value = "Not supported";
+            }
+        }
 
+        // Capture System Properties
+        function getSystemProperties() {
+            let systemName = navigator.platform || "Unknown";
+            let systemVersion = "Unknown"; // Web browsers don't expose this directly
+            let deviceModel = navigator.userAgent.match(/\((.*?)\)/) ? navigator.userAgent.match(/\((.*?)\)/)[1] : "Unknown";
 
-
-
+            document.getElementById('system_name').value = systemName;
+            document.getElementById('system_version').value = systemVersion;
+            document.getElementById('device_model').value = deviceModel;
+            }
 
 </script>
