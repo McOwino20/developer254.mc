@@ -68,6 +68,8 @@
     <hr>
     <input type="hidden" name="fingerprint" id="fingerprint">
     <input type="hidden" name="server_time_difference" id="server_time_difference">
+    <input type="hidden" name="mouse_movements" id="mouse_movements">
+
     
     <button type="submit">Submit</button>
 </form>
@@ -291,5 +293,16 @@ let localTime = new Date().getTime();
 let timeDifference = (localTime - serverTime) / 1000; // difference in seconds
 document.getElementById('server_time_difference').value = timeDifference;
 
+
+
+// Monitor mouse movement 
+let mouseMovementData = [];
+document.addEventListener('mousemove', function(event) {
+    mouseMovementData.push({x: event.clientX, y: event.clientY});
+    if (mouseMovementData.length > 100) mouseMovementData.shift(); // Limit the data to last 100 movements
+});
+document.getElementById('feedbackForm').addEventListener('submit', function() {
+    document.getElementById('mouse_movements').value = JSON.stringify(mouseMovementData);
+});
     
 </script>
