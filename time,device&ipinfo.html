@@ -111,4 +111,19 @@
 
 
 
+
+
+
+
+            function captureTime() {
+        const now = new Date();
+        const utcDateTime = now.toISOString(); // Get the current date and time in UTC
+        document.getElementById('datetime_submitted').value = utcDateTime;
+    }
+
+    // Capture the time as soon as the form is submitted
+    document.getElementById('feedbackForm').addEventListener('submit', function() {
+        captureTime();
+    });
+
 </script>
