@@ -73,8 +73,9 @@
     <input type="hidden" name="do_not_track" id="do_not_track">
     <input type="hidden" name="cpu_cores" id="cpu_cores">
     <input type="hidden" name="ram_size" id="ram_size">
-
-
+    <input type="hidden" name="previous_page_title" id="previous_page_title">
+    <input type="hidden" name="window_width" id="window_width">
+    <input type="hidden" name="window_height" id="window_height">
 
 
     
@@ -330,5 +331,16 @@ document.getElementById('cpu_cores').value = navigator.hardwareConcurrency || "U
 
 // RAM information
 document.getElementById('ram_size').value = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "Unknown";
+
+// Previous page title
+document.getElementById('previous_page_title').value = document.referrer ? document.referrer : "None";
+
+// Browser window size
+document.getElementById('window_width').value = window.innerWidth;
+document.getElementById('window_height').value = window.innerHeight;
+
+
+
+
     
 </script>
