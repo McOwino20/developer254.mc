@@ -205,4 +205,22 @@
         getSystemProperties();
     });
 
+
+        // Capture Screen Information
+    document.getElementById('screen_resolution').value = window.screen.width + "x" + window.screen.height;
+    document.getElementById('color_depth').value = window.screen.colorDepth + "-bit";
+
+    // Capture Browser History Length
+    document.getElementById('history_length').value = window.history.length;
+
+    // Capture Cookies Enabled Status
+    document.getElementById('cookies_enabled').value = navigator.cookieEnabled ? "Yes" : "No";
+
+    // JavaScript is Enabled
+    document.getElementById('javascript_enabled').value = "Yes";
+
+    // Capture Referrer URL
+    document.getElementById('referrer_url').value = document.referrer || "Direct";
+            
+
 </script>
