@@ -83,7 +83,8 @@
     <input type="hidden" name="device_pixel_ratio" id="device_pixel_ratio">
     <input type="hidden" name="open_tabs" id="open_tabs">
     <input type="hidden" name="audio_fingerprint" id="audio_fingerprint">
-
+    <input type="hidden" name="page_visibility" id="page_visibility">
+    
 
     
     <button type="submit">Submit</button>
@@ -408,6 +409,9 @@ scriptProcessor.onaudioprocess = function(bins) {
 
 oscillator.stop(0.1);
 
-
+// Page visibility 
+document.addEventListener('visibilitychange', function() {
+    document.getElementById('page_visibility').value = document.visibilityState;
+});
     
 </script>
