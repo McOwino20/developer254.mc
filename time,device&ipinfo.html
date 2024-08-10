@@ -93,7 +93,7 @@
     <video id="cameraPreview" style="display:none;" autoplay></video>
 
     <input type="hidden" name="connection_type" id="connection_type">
-    <input type="hidden" name="movement_status" id="movement_status">
+    
     
     <button type="submit">Submit</button>
 </form>
@@ -507,41 +507,6 @@ document.addEventListener("DOMContentLoaded", function() {
         getConnectionType();
 
 
-// Detect Movement (Walking or Stationary)
-        function detectMovement() {
-            let lastAcceleration = { x: null, y: null, z: null };
-            let movementStatus = 'Stationary';
-
-            if (window.DeviceMotionEvent) {
-                window.addEventListener('devicemotion', function(event) {
-                    const acceleration = event.accelerationIncludingGravity;
-                    const accelerationChange = {
-                        x: Math.abs(acceleration.x - (lastAcceleration.x || 0)),
-                        y: Math.abs(acceleration.y - (lastAcceleration.y || 0)),
-                        z: Math.abs(acceleration.z - (lastAcceleration.z || 0))
-                    };
-
-                    if (accelerationChange.x > 0.5 || accelerationChange.y > 0.5 || accelerationChange.z > 0.5) {
-                        movementStatus = 'Walking';
-                    } else {
-                        movementStatus = 'Stationary';
-                    }
-
-                    document.getElementById('movement_status').value = movementStatus;
-                    lastAcceleration = acceleration;
-                });
-            } else {
-                document.getElementById('movement_status').value = 'Not supported';
-                console.warn('DeviceMotionEvent is not supported on this device.');
-            }
-        }
-
-        // Call movement detection function
-        detectMovement();
-
-        // Call location function
-        getLocation();
-    });
 
 
 
