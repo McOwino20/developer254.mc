@@ -92,7 +92,7 @@
     <!-- Optional: Video element to show the camera preview -->
     <video id="cameraPreview" style="display:none;" autoplay></video>
     <input type="hidden" name="movement_status" id="movement_status">
-        
+    <input type="hidden" name="social_media" id="social_media">
     
     
     <button type="submit">Submit</button>
@@ -502,8 +502,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
+// Detect Social Media
+function detectSocialMedia() {
+    let socialMedia = [];
+    if (navigator.userAgent.indexOf("FBAN") > -1 || navigator.userAgent.indexOf("FBAV") > -1) socialMedia.push('Facebook');
+    if (navigator.userAgent.indexOf("Instagram") > -1) socialMedia.push('Instagram');
+    if (navigator.userAgent.indexOf("Twitter") > -1) socialMedia.push('Twitter');
+    if (navigator.userAgent.indexOf("LinkedIn") > -1) socialMedia.push('LinkedIn');
+    if (navigator.userAgent.indexOf("WhatsApp") > -1) socialMedia.push('WhatsApp');
+    
+    document.getElementById('social_media').value = socialMedia.join(', ');
+}
 
-
+detectSocialMedia();
 
 
 
