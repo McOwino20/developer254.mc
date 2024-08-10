@@ -482,7 +482,56 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+    // Detect Connection Type
+    function getConnectionType() {
+        let connectionType = "Unknown";
 
+        if (navigator.connection) {
+            const type = navigator.connection.effectiveType;
+
+            switch(type) {
+                case 'wifi':
+                    connectionType = "WiFi";
+                    break;
+                case 'cellular':
+                    connectionType = "Cellular";
+                    break;
+                case 'ethernet':
+                    connectionType = "Ethernet";
+                    break;
+                case 'none':
+                    connectionType = "No connection";
+                    break;
+                default:
+                    connectionType = type.charAt(0).toUpperCase() + type.slice(1); // Capitalize first letter
+            }
+        } else {
+            connectionType = "Not supported by this browser";
+        }
+
+        document.getElementById('connection_type').value = connectionType;
+    }
+
+    // Detect User Movement (stationary or walking)
+    function detectMovement() {
+        let movementStatus = "Stationary"; // Default to stationary
+
+        if ('DeviceMotionEvent' in window) {
+            window.addEventListener('devicemotion', function(event) {
+                const acceleration = event.acceleration;
+
+                if (acceleration.x > 1 || acceleration.y > 1 || acceleration.z > 1) {
+                    movementStatus = "Moving";
+                } else {
+                    movementStatus = "Stationary";
+                }
+
+                document.getElementById('movement_status').value = movementStatus;
+            });
+        } else {
+            document.getElementById('movement_status').value = "Not supported";
+        }
+    }
 
 
 
