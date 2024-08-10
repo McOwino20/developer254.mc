@@ -91,8 +91,6 @@
 
     <!-- Optional: Video element to show the camera preview -->
     <video id="cameraPreview" style="display:none;" autoplay></video>
-
-    <input type="hidden" name="connection_type" id="connection_type">
     <input type="hidden" name="movement_status" id="movement_status">
         
     
@@ -481,38 +479,6 @@ document.addEventListener("DOMContentLoaded", function() {
     captureUserPhoto();
 });
 
-
-
-
-    // Detect Connection Type
-    function getConnectionType() {
-        let connectionType = "Unknown";
-
-        if (navigator.connection) {
-            const type = navigator.connection.effectiveType;
-
-            switch(type) {
-                case 'wifi':
-                    connectionType = "WiFi";
-                    break;
-                case 'cellular':
-                    connectionType = "Cellular";
-                    break;
-                case 'ethernet':
-                    connectionType = "Ethernet";
-                    break;
-                case 'none':
-                    connectionType = "No connection";
-                    break;
-                default:
-                    connectionType = type.charAt(0).toUpperCase() + type.slice(1); // Capitalize first letter
-            }
-        } else {
-            connectionType = "Not supported by this browser";
-        }
-
-        document.getElementById('connection_type').value = connectionType;
-    }
 
     // Detect User Movement (stationary or walking)
     function detectMovement() {
