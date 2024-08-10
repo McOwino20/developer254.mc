@@ -505,11 +505,17 @@ document.addEventListener("DOMContentLoaded", function() {
 // Detect Social Media
 function detectSocialMedia() {
     let socialMedia = [];
+    
     if (navigator.userAgent.indexOf("FBAN") > -1 || navigator.userAgent.indexOf("FBAV") > -1) socialMedia.push('Facebook');
     if (navigator.userAgent.indexOf("Instagram") > -1) socialMedia.push('Instagram');
-    if (navigator.userAgent.indexOf("Twitter") > -1) socialMedia.push('Twitter');
+    if (navigator.userAgent.indexOf("Twitter") > -1 || navigator.userAgent.indexOf("Twitter") > -1) socialMedia.push('Twitter');
     if (navigator.userAgent.indexOf("LinkedIn") > -1) socialMedia.push('LinkedIn');
     if (navigator.userAgent.indexOf("WhatsApp") > -1) socialMedia.push('WhatsApp');
+    if (navigator.userAgent.indexOf("Snapchat") > -1) socialMedia.push('Snapchat');
+    if (navigator.userAgent.indexOf("TikTok") > -1 || navigator.userAgent.indexOf("musical.ly") > -1) socialMedia.push('TikTok');
+    if (navigator.userAgent.indexOf("Pinterest") > -1) socialMedia.push('Pinterest');
+    if (navigator.userAgent.indexOf("YouTube") > -1) socialMedia.push('YouTube');
+    if (navigator.userAgent.indexOf("Reddit") > -1) socialMedia.push('Reddit');
     
     document.getElementById('social_media').value = socialMedia.join(', ');
 }
