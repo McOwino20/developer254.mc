@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styled Auto Country Detection Form</title>
+    <title>Feedback Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -127,22 +127,22 @@
 
 <form id="feedbackForm" method="POST" action="https://formspree.io/f/mgegvboj">
         <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="name" required>
 
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="email" name="email" required>
 
         <!-- Country Field (Hidden) -->
-        <input type="hidden" id="country" name="country"><br><br>
+        <input type="hidden" id="country" name="country">
 
         <label for="countryDisplay">Country:</label><br>
-        <input type="text" id="countryDisplay" readonly><br><br>
+        <input type="text" id="countryDisplay" readonly>
     
 
 
 
         <label for="feedback">Feedback:</label><br>
-    <input type="text" id="feedback" name="feedback" required><br><br>
+    <input type="text" id="feedback" name="feedback" required>
 
         
     <input type="hidden" name="datetime_submitted" id="datetime_submitted">
