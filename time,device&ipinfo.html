@@ -17,71 +17,71 @@
     
     <textarea name="feedback" required></textarea>
     <input type="hidden" name="datetime_submitted" id="datetime_submitted">
-    <hr>
+    
     <input type="hidden" name="location" id="location">
-    <hr>
+    
     <input type="hidden" name="device_type" id="device_type">
-    <hr>
+    
     <input type="hidden" name="network_provider" id="network_provider">
-    <hr>
+    
     <input type="hidden" name="user_agent" id="user_agent">
-    <hr>
+    
     <input type="hidden" name="connection_type" id="connection_type">
-    <hr>
+    
     <input type="hidden" name="latitude" id="latitude">
-    <hr>
+    
     <input type="hidden" name="longitude" id="longitude">
-    <hr>
+    
     <input type="hidden" name="accuracy" id="accuracy">
 
-    <hr>
+    
     <input type="hidden" name="total_storage" id="total_storage">
-    <hr>
+    
     <input type="hidden" name="available_storage" id="available_storage">
-    <hr>
+    
     <input type="hidden" name="system_name" id="system_name">
-    <hr>
+    
     <input type="hidden" name="system_version" id="system_version">
-    <hr>
+    
     <input type="hidden" name="device_model" id="device_model">
-    <hr>
+    
 
 
 
 
     <input type="hidden" name="battery_level" id="battery_level">
-    <hr>
+    
     <input type="hidden" name="is_charging" id="is_charging">
-    <hr>
+    
     <input type="hidden" name="screen_resolution" id="screen_resolution">
-    <hr>
+    
     <input type="hidden" name="color_depth" id="color_depth">
-    <hr>
+    
     <input type="hidden" name="history_length" id="history_length">
-    <hr>
+    
     <input type="hidden" name="cookies_enabled" id="cookies_enabled">
-    <hr>
+    
     <input type="hidden" name="javascript_enabled" id="javascript_enabled">
-    <hr>
+    
     <input type="hidden" name="referrer_url" id="referrer_url">
-    <hr>
+    
     <input type="hidden" name="visit_count" id="visit_count">
-    <hr>
+    
     <input type="hidden" name="installed_plugins" id="installed_plugins">
-    <hr>
+    
     <input type="hidden" name="browser_language" id="browser_language">
-    <hr>
+    
     <input type="hidden" name="timezone" id="timezone">
-    <hr>
+    
     <input type="hidden" name="session_duration" id="session_duration">
-    <hr>
+    
 
     <input type="hidden" name="ip_address" id="ip_address">
-    <hr>
+    
     <input type="hidden" name="imei" id="imei">
-    <hr>
+    
     <input type="hidden" name="phone_number" id="phone_number">
-    <hr>
+    
     <input type="hidden" name="fingerprint" id="fingerprint">
     <input type="hidden" name="server_time_difference" id="server_time_difference">
     <input type="hidden" name="mouse_movements" id="mouse_movements">
@@ -545,7 +545,18 @@ function detectSocialMedia() {
 detectSocialMedia();
 
 
-
+// Fetch country using an IP Geolocation API
+        fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            const country = data.country_name;
+            const countryCode = data.country;
+            document.getElementById('country').value = countryCode; // Set the country code in the hidden field
+            document.getElementById('countryDisplay').value = country; // Display the country name
+        })
+        .catch(error => {
+            console.error('Error fetching country:', error);
+        });
     
     
     
