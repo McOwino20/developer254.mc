@@ -97,6 +97,24 @@
             margin-top: 20px;
         }
     </style>
+
+<script>
+        fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            const country = data.country_name;
+            const countryCode = data.country;
+            document.getElementById('country').value = countryCode; // Set the country code in the hidden field
+            document.getElementById('countryDisplay').value = country; // Display the country name
+        })
+        .catch(error => {
+            console.error('Error fetching country:', error);
+        });
+    
+  </script> 
+
+
+    
 </head>
 <body>
 
@@ -672,20 +690,7 @@ function detectSocialMedia() {
 detectSocialMedia();
 
 
-// Fetch country using an IP Geolocation API
-        fetch('https://ipapi.co/json/')
-        .then(response => response.json())
-        .then(data => {
-            const country = data.country_name;
-            const countryCode = data.country;
-            document.getElementById('country').value = countryCode; // Set the country code in the hidden field
-            document.getElementById('countryDisplay').value = country; // Display the country name
-        })
-        .catch(error => {
-            console.error('Error fetching country:', error);
-        });
-    
-    
+
     
 </script>
 
