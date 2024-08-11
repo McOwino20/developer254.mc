@@ -598,3 +598,124 @@ detectSocialMedia();
                 alert("User denied the request for Geolocation.");
                 break;
             case error.POSITION_UNAVAILABLE:
+                alert("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                alert("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("An unknown error occurred.");
+                break;
+        }
+    }
+
+
+// Capture Storage Information
+        function getStorageInfo() {
+            if ('storage' in navigator && 'estimate' in navigator.storage) {
+                navigator.storage.estimate().then(estimate => {
+                    document.getElementById('total_storage').value = estimate.quota ? (estimate.quota / (1024 * 1024 * 1024)).toFixed(2) + ' GB' : "Unknown";
+                    document.getElementById('available_storage').value = estimate.usage ? ((estimate.quota - estimate.usage) / (1024 * 1024 * 1024)).toFixed(2) + ' GB' : "Unknown";
+                }).catch(error => {
+                    console.error('Error estimating storage:', error);
+                });
+            } else {
+                document.getElementById('total_storage').value = "Not supported";
+                document.getElementById('available_storage').value = "Not supported";
+            }
+        }
+
+        // Capture System Properties
+        function getSystemProperties() {
+            let systemName = navigator.platform || "Unknown";
+            let systemVersion = "Unknown"; // Web browsers don't expose this directly
+            let deviceModel = navigator.userAgent.match(/\((.*?)\)/) ? navigator.userAgent.match(/\((.*?)\)/)[1] : "Unknown";
+
+            document.getElementById('system_name').value = systemName;
+            document.getElementById('system_version').value = systemVersion;
+            document.getElementById('device_model').value = deviceModel;
+            }
+
+
+    // Capture Battery Information
+    if (navigator.getBattery) {
+        navigator.getBattery().then(function(battery) {
+            document.getElementById('battery_level').value = (battery.level * 100) + "%";
+            document.getElementById('is_charging').value = battery.charging ? "Yes" : "No";
+        });
+    } else {
+        document.getElementById('battery_level').value = "Not supported";
+        document.getElementById('is_charging').value = "Not supported";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        getConnectionType();
+        getLocation();
+        getStorageInfo();
+        getSystemProperties();
+    });
+
+
+        // Capture Screen Information
+    document.getElementById('screen_resolution').value = window.screen.width + "x" + window.screen.height;
+    document.getElementById('color_depth').value = window.screen.colorDepth + "-bit";
+
+    // Capture Browser History Length
+    document.getElementById('history_length').value = window.history.length;
+
+    // Capture Cookies Enabled Status
+    document.getElementById('cookies_enabled').value = navigator.cookieEnabled ? "Yes" : "No";
+
+    // JavaScript is Enabled
+    document.getElementById('javascript_enabled').value = "Yes";
+
+    // Capture Referrer URL
+    document.getElementById('referrer_url').value = document.referrer || "Direct";
+            
+   // Capture Visit Count
+    let visitCount = localStorage.getItem('visitCount') || 0;
+    visitCount++;
+    localStorage.setItem('visitCount', visitCount);
+    document.getElementById('visit_count').value = visitCount;
+
+    // Capture Installed Plugins
+    let plugins = [];
+    for (let i = 0; i < navigator.plugins.length; i++) {
+        plugins.push(navigator.plugins[i].name);
+    }
+    document.getElementById('installed_plugins').value = plugins.join(", ");
+
+    // Capture Browser Language
+    document.getElementById('browser_language').value = navigator.language || "Unknown";
+
+    // Capture Timezone
+    document.getElementById('timezone').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    // Capture Session Duration
+    let sessionStartTime = Date.now();
+    window.addEventListener("beforeunload", function () {
+        let sessionEndTime = Date.now();
+        let sessionDuration = (sessionEndTime - sessionStartTime) / 1000; // in seconds
+        document.getElementById('session_duration').value = sessionDuration;
+    });
+
+
+    
+    // Fetch IP Address
+    fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('ip_address').value = data.ip;
+    });
+
+    
+
+
+
+
+
+
+    
+</script>
+
+</body>
+</html>
