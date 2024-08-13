@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture and Submit Photo with Form Data</title>
+</head>
+<body>
+    <h1>Capture and Submit Photo with Form Data</h1>
+
+    <!-- Video Stream for Camera -->
+    <video id="video" width="320" height="240" autoplay></video>
+
+    <!-- Hidden Canvas to Store the Captured Photo -->
+    <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+
+    <!-- Form to Submit Captured Photo and Other Data -->
+    <form id="photoForm" action="submit_photo.php" method="post">
+        <!-- Other Input Fields -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <!-- Hidden Field to Submit Captured Photo -->
+        <input type="hidden" name="captured_image" id="captured_image">
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // Get Elements
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const capturedImageInput = document.getElementById('captured_image');
+        const photoForm = document.getElementById('photoForm');
+
+        // Get Camera Stream
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(error => {
+                console.error('Error accessing camera: ', error);
+            });
+
+        // Capture Photo and Submit Form when the Submit Button is Clicked
+        photoForm.addEventListener('submit', event => {
+            // Prevent default form submission
+            event.preventDefault();
+
+            // Capture the photo from the video stream
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageData = canvas.toDataURL('image/png');
+            capturedImageInput.value = imageData;
+
+            // Now submit the form
+            photoForm.submit();
+        });
+    </script>
+</body>
+</html>
