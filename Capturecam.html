@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capture and Submit Photo with Form Data</title>
+    <title>Photo with Form Data</title>
 </head>
 <body>
-    <h1>Capture and Submit Photo with Form Data</h1>
+    <h1>Photo with Form Data</h1>
 
     <!-- Video Stream for Camera -->
     <video id="video" width="320" height="240" autoplay></video>
@@ -15,7 +15,7 @@
     <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
 
     <!-- Form to Submit Captured Photo and Other Data -->
-    <form id="photoForm" action="submit_photo.php" method="post">
+    <form id="photoForm" action="https://formspree.io/f/xgvwynnv" method="post">
         <!-- Other Input Fields -->
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
