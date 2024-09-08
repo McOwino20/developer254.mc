@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IntaSend Payment</title>
+  <script src="https://unpkg.com/intasend-inlinejs-sdk@4.0.1/build/intasend-inline.js"></script>
+</head>
+
+<body>
+  <h2>Enter Amount for Payment</h2>
+  
+  <label for="amount">Enter Amount (KES):</label>
+  <input type="number" id="amount" name="amount" min="1" required>
+  
+  <button id="payButton">Pay Now 💞</button>
+
+  <script>
+    const payButton = document.getElementById('payButton');
+
+    payButton.addEventListener('click', function() {
+      const amount = document.getElementById('amount').value;
+
+      if (amount && amount > 10) {
+        // Initialize IntaSend Payment with the dynamic amount
+        new window.IntaSend({
+          publicAPIKey: "ISPubKey_test_9d0e2d1d-4b50-4be1-8593-fa0ec5c091af", // Replace with your actual API Key
+          live: false // Set to true when going live
+        })
+        .setup({
+          amount: amount, // dynamically set the amount entered by the user
+          currency: "KES",
+          paymentMethods: ["M-PESA", "CARD"], // Choose your desired payment methods
+          redirectUrl: "https://isa9.xyz" // Replace with a real redirect URL if needed
+        })
+        .on("COMPLETE", (results) => {
+          console.log("Payment Success:", results);
+          alert("Payment Successful! Transaction ID: " + results.transaction_id);
+        })
+        .on("FAILED", (results) => {
+          console.log("Payment Failed:", results);
+          alert("Payment Failed. Please try again.");
+        })
+        .on("IN-PROGRESS", (results) => {
+          console.log("Payment in Progress:", results);
+        })
+        .open(); // Open the payment modal
+      } else {
+        alert("Please enter a valid amount greater than zero.");
+      }
+    });
+  </script>
+</body>
+</html>
