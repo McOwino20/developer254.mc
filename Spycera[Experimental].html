@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Form</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -462,8 +463,8 @@ document.getElementById('webgl_fingerprint').value = webglFingerprint;
            I understand that this form is for educational purposes only, and the owner is not liable for any data transmitted along with it.
        
     </label><br><br>
-        
-    
+ <div class="g-recaptcha" data-sitekey="6LdIpUUqAAAAAG0EjNsQFYxFoSr3KlwKq69VAg0q"></div> <!-- replace with your recaptcha SITE key not secret key --> 
+    <br>
     <button type="submit">Submit</button>
 
 
